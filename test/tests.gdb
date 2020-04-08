@@ -39,24 +39,29 @@ expectPORTC 0
 checkResult
 
 # Add tests below
-test “PINA: 0x00 => PORTB: 0x02”
+# test “PINA[1:0]: 00, PORTB0: 0”
 setPINA 0x00
-continue 5
-expectPORTB 0x02
+continue 2
+expectPORTB 0x00
 checkResult
 
-test “PINA: 0x02 => PORTB: 0x02”
-setPINA 0x02
-continue 5
-expectPORTB 0x02
-checkResult
-
-test “PINA: 0x01 => PORTB: 0x01”
+test “PINA[1:0]: 01, PORTB0: 1”
 setPINA 0x01
-continue 5
+continue 2
 expectPORTB 0x01
 checkResult
 
+test “PINA[1:0]: 10, PORTB0: 0”
+setPINA 0x02
+continue 2
+expectPORTB 0x00
+checkResult
+
+test “PINA[1:0]: 11, PORTB0: 0”
+setPINA 0x03
+continue 2
+expectPORTB 0x00
+checkResult
 # Report on how many tests passed/tests ran
 set $passed=$tests-$failed
 eval "shell echo Passed %d/%d tests.\n",$passed,$tests
