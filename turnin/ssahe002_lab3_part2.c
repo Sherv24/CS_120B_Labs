@@ -1,7 +1,7 @@
 /*	Author: Sherwin Sahebi
  *  Partner(s) Name: 
  *	Lab Section: 028
- *	Assignment: Lab #3  Exercise #1
+ *	Assignment: Lab #3  Exercise #2
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -19,6 +19,8 @@ int main(void) {
 	DDRC = 0xFF; PORTC = 0x00;
 	unsigned char tmpA = 0x00;
 
+
+	while(1) {
 	tmpA = PINA & 0x0F;
 
 	if (tmpA = 0x00) {
@@ -60,7 +62,7 @@ int main(void) {
 	else if ((tmpA >= 13) && (tmpA <= 15)) {
 		PORTC = 0x3F;
 		}
-
+	}
 	return 1;
 }
 
