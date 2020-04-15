@@ -19,11 +19,10 @@ int main(void) {
 	DDRC = 0xFF; PORTC = 0x00;
 	unsigned char tmpA = 0x00;
 
-
-	while(1) {
+while(1) {
 	tmpA = PINA & 0x0F;
 
-	if (tmpA = 0x00) {
+	if (tmpA == 0x00) {
 		PORTC = 0x40;
 	}
 	
@@ -52,11 +51,11 @@ int main(void) {
 		}
 	
 	else if ((tmpA >= 7) && (tmpA <= 9)) {
-		PORTC = 0x70;
+		PORTC = 0x3C;
 		}
 	
 	else if ((tmpA >= 10) && (tmpA <= 12)) {
-		PORTC = 0x3C;
+		PORTC = 0x3E;
 		}
 	
 	else if ((tmpA >= 13) && (tmpA <= 15)) {
