@@ -38,6 +38,7 @@ int main(void) {
 			totB = (numB == 0x01) ? totB + 1 : totB;	
 		}
 		PORTC = totA + totB;
+		loop = 0x00;
 	}
 	return 1;
 }

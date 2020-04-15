@@ -38,19 +38,6 @@ echo Running all tests..."\n\n
 # Check pass/fail
 #checkResult
 
-# Add tests below
-#test “PINA[1:0]: 00, PORTB0: 0”
-#setPINA 0x00
-#continue 2
-#expectPORTB 0x00
-#checkResult
-
-#test “PINA[1:0]: 01, PORTB0: 1”
-#setPINA 0x01
-#continue 2
-#expectPORTB 0x01
-#checkResult
-
 test "All PINs equal zero. PORTC: 0x00"
 setPINA 0x00
 setPINB 0x00
@@ -58,11 +45,25 @@ continue 5
 expectPORTC 0x00
 checkResult
 
-test "PINA: 0x10, PINB: 0x10, PORTC = 0x00" 
+test "PINA: 0x01, PINB: 0x02, PORTC = 0x00" 
 setPINA 0x01
-setPINB 0x01
+setPINB 0x02
 continue 5
-expectPORTC 0x00
+expectPORTC 0x02
+checkResult
+
+test "PINA: 0xF0, PINB: 0x0F, PORTC = 0x08"
+setPINA 0xF0
+setPINB 0x0F
+continue 5
+expectPORTC 0x08
+checkResult
+
+test "PINA: 0xFF, PINB: 0xFF, PORTC: 0x10"
+setPINA 0xFF
+setPINB 0xFF
+continue 5
+expectPORTC 0x10
 checkResult
 
 # Report on how many tests passed/tests ran
